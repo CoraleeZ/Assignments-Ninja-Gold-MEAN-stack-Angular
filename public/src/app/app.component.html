@@ -1,0 +1,73 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul> -->
+
+<div *ngIf='count < 15&&score<150'>
+    <h2>Pick up 150 golds in 15 steps!</h2>
+
+    <h1>Total Gold:{{score}}</h1>
+    <button class='btn' (click)='save()'>Save!</button>
+    <button class='btn' (click)='continue()'>Continue a saved game!</button>
+    <button class='btn' (click)='reset()'>Play again!</button>
+
+    <div>
+
+        <div class='findgold'>
+            <h1>Farm</h1>
+            <p>Earn 2-5 Gold</p>
+            <button (click)='recode(1)'>Farm!</button>
+        </div>
+        <!-- /// -->
+        <div class='findgold'>
+            <h1>Cave</h1>
+            <p>Earn 5-10 Gold</p>
+            <button (click)='recode(2)'>Cave!</button>
+        </div>
+        <!-- /// -->
+        <div class='findgold'>
+            <h1>House</h1>
+            <p>Earn 7-15 Gold</p>
+            <button (click)='recode(3)'>House!</button>
+        </div>
+        <!-- /// -->
+        <div class='findgold'>
+            <h1>Casino</h1>
+            <p>Earn or lose up to 100 Gold</p>
+            <button (click)='recode(4)'>Casino!</button>
+        </div>
+        <div class="result">
+            <h1>Adventure log</h1>
+            <p *ngFor='let x of displayresults'>{{x}}</p>
+        </div>
+        <div class="top">
+            <h1>Top 5 recodes!</h1>
+            <p *ngFor='let x of top'>{{x}}</p>
+        </div>
+
+    </div>
+
+</div>
+<div *ngIf='count == 15 || score>=150'>
+    <p *ngIf='score < 150'>LOSE GAME</p>
+    <p *ngIf='score >= 150'>WIN!</p>
+    <button class='btn' (click)='reset()'>Play again!</button>
+</div>
+
+
+<router-outlet></router-outlet>

@@ -4,7 +4,9 @@ var Save = require('./models').Save;
 module.exports = {
 
     getAllTask: (req, res) => {
-        Ninja.find().then(data => res.json(data)).catch(err => res.json(err))
+        Ninja.find()
+            .then(data => res.json(data))
+            .catch(err => res.json(err));
     },
 
     getOneTask: (req, res) => {
@@ -17,7 +19,9 @@ module.exports = {
 
     createTask: (req, res) => {
         const DATA = req.body;
-        Ninja.create(DATA).then(data => res.json(data)).catch(err => res.json(err))
+        Ninja.create(DATA)
+            .then(data => res.json(data))
+            .catch(err => res.json(err));
     },
     ///
     insertManyTask: (req, res) => {
@@ -55,7 +59,9 @@ module.exports = {
 
     createSave: (req, res) => {
         const DATA = req.body;
-        Save.create(DATA).then(data => res.json(data)).catch(err => res.json(err))
+        Save.create(DATA)
+            .then(data => res.json(data))
+            .catch(err => res.json(err));
     },
 
     updateSave: (req, res) => {
